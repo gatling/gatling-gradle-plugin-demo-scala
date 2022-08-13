@@ -1,8 +1,9 @@
 import java.nio.file.{Path, Paths}
+import java.util.Objects.requireNonNull
 
 object IDEPathHelper {
 
-  private val projectRootDir = Paths.get(getClass.getClassLoader.getResource("gatling.conf").toURI()).getParent.getParent.getParent.getParent
+  private val projectRootDir = Paths.get(requireNonNull(getClass.getResource("gatling.conf"), "Couldn't locate gatling.conf").toURI).getParent.getParent.getParent.getParent
   private val gradleBuildDirectory = projectRootDir.resolve("build")
   private val gradleSrcDirectory = projectRootDir.resolve("src").resolve("gatling")
 
