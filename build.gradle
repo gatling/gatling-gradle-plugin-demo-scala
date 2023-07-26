@@ -14,6 +14,12 @@ gatling {
   }
 }
 
+tasks.withType(ScalaCompile) {
+  scalaCompileOptions.forkOptions.with {
+    jvmArgs = ['-Xss100m'] // Scala compiler may require a larger stack size when compiling Gatling simulations
+  }
+}
+
 repositories {
   mavenCentral()
 }
