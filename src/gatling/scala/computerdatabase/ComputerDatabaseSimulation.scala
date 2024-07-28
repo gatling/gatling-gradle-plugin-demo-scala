@@ -27,7 +27,7 @@ class ComputerDatabaseSimulation extends Simulation {
       pause(1),
       http("Select")
         .get("#{computerUrl}")
-        .check(status.is(200))
+        .check(status.is(200)),
       pause(1)
   )
 
